@@ -41,6 +41,39 @@ public class ScreenLockinPatternTest {
 
 
 	@Test
+	public void ScreenLockinPatternTestLength0Test()  throws InterruptedException, ExecutionException, TimeoutException {
+		Future<Integer> count  = slp.countPatternsFrom(3, 0);
+		Integer result = count.get(10, TimeUnit.SECONDS);
+		assertEquals(result.intValue(), 0);
+	}
+	
+	
+	@Test
+	public void ScreenLockinPatternTestLength_1Test()  throws InterruptedException, ExecutionException, TimeoutException {
+		Future<Integer> count  = slp.countPatternsFrom(1, -1);
+		Integer result = count.get(10, TimeUnit.SECONDS);
+		assertEquals(result.intValue(), 0);
+	}
+	
+	
+	@Test
+	public void ScreenLockinPatternTestFirst0Test()  throws InterruptedException, ExecutionException, TimeoutException {
+		Future<Integer> count  = slp.countPatternsFrom(0, 4);
+		Integer result = count.get(10, TimeUnit.SECONDS);
+		assertEquals(result.intValue(), 0);
+	}
+	
+	
+	@Test
+	public void ScreenLockinPatternTestFirst_10Test()  throws InterruptedException, ExecutionException, TimeoutException {
+		Future<Integer> count  = slp.countPatternsFrom(-10, 4);
+		Integer result = count.get(10, TimeUnit.SECONDS);
+		assertEquals(result.intValue(), 0);
+	}
+	
+	
+	
+	@Test
 	public void ScreenLockinPatternTestFirst3Length2Test()  throws InterruptedException, ExecutionException, TimeoutException {
 		Future<Integer> count  = slp.countPatternsFrom(3, 2);
 		Integer result = count.get(10, TimeUnit.SECONDS);

@@ -1,6 +1,15 @@
 package utils;
 
-import java.util.Arrays;
+/**
+ * Exercicio do estagio Premium Minds 2022
+ * Completado por:
+ * 	Catarina Lima (lima.ca.catarina@gmail.com)
+ *
+ * Esta classe representa uma posicao numa matriz quadrada 3 * 3 com valores de 1 a 9
+ * Se a posicao representar um canto da matriz eh considerada DoubleEdge
+ * Se a posicao estiver apenas num lado da matriz eh considerada Edge
+ * 
+ */
 
 public class Coordinate {
 

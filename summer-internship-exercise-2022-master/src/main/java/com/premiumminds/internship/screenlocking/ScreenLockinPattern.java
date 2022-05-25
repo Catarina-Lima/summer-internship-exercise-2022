@@ -34,19 +34,32 @@ class ScreenLockinPattern implements IScreenLockinPattern {
 	 * @param length the number of points used in pattern
 	 * @return number of patterns
 	 */
-	public Future<Integer> countPatternsFrom(int firstPoint,final int length) {
+	public Future<Integer> countPatternsFrom(int firstPoint, final int length) {
 
 		if (screen.isEmpty()) {
 			populateScreen();
 		}
+		
+		ExecutorService executor 
+	      = Executors.newSingleThreadExecutor();
 
-
+		if (length > 9 || length < 1 || firstPoint > 9 || firstPoint < 1) {
+			
+			return executor.submit(new Callable<Integer>() {
+				@Override
+				public Integer call() throws Exception {
+				        //Thread.sleep(1000);
+				        return 0;
+				    }
+			});
+			
+		}
+		
 		final ArrayList<ArrayList<Integer>> t = new ArrayList<ArrayList<Integer>>();
 		t.add(new ArrayList<Integer>());
 		t.get(0).add(firstPoint);
 
-		ExecutorService executor 
-	      = Executors.newSingleThreadExecutor();
+		
 	    
 	    return executor.submit(new Callable<Integer>() {
 			@Override
